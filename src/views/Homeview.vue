@@ -2,6 +2,35 @@
 // import Navbar from "../components/Navbar.vue";
 import Footer from "../components/Footer.vue";
 import logo from "../assets/logo/logo.png";
+
+const testimonials = [
+  {
+    name: "Sarah Johnson",
+    role: "Project Manager",
+    image: "https://i.pravatar.cc/150?img=12",
+    text: "Maveric delivered exceptional results on our infrastructure project. Professional and highly reliable.",
+  },
+  {
+    name: "Michael Lee",
+    role: "Site Engineer",
+    image: "https://i.pravatar.cc/150?img=15",
+    text: "Their engineering expertise exceeded our expectations throughout the entire project.",
+  },
+  {
+    name: "David Smith",
+    role: "Construction Lead",
+    image: "https://i.pravatar.cc/150?img=18",
+    text: "Outstanding communication and execution. We would gladly work with Maveric again.",
+  },
+  {
+    name: "Emma Wilson",
+    role: "Operations Manager",
+    image: "https://i.pravatar.cc/150?img=22",
+    text: "Very smooth collaboration from start to finish with excellent attention to detail.",
+  },
+];
+
+const duplicatedTestimonials = [...testimonials, ...testimonials];
 </script>
 
 <template>
@@ -23,7 +52,7 @@ import logo from "../assets/logo/logo.png";
           class="flex justify-between items-center gap-8"
           data-aos="fade-down"
         >
-          <img class="w-[99px] h-[35px] object-contain" :src="logo" alt="" /> 
+          <img class="w-[99px] h-[35px] object-contain" :src="logo" alt="" />
 
           <ul class="hidden sm:flex gap-7 items-center">
             <li>
@@ -42,9 +71,9 @@ import logo from "../assets/logo/logo.png";
 
           <!--Desktop button -->
           <button
-            class="hidden sm:block rounded drop-shadow-lg text-white text-xs px-6 py-2 bg-lime-600 hover:bg-lime-800 transition duration-300"
+            class="hidden sm:block rounded drop-shadow-lg text-white text-xs px-6 py-2 bg-orange-500 hover:bg-orange-800 transition duration-300"
           >
-            Get Started
+            Get in Touch
           </button>
 
           <!--Hamburger -->
@@ -115,19 +144,19 @@ import logo from "../assets/logo/logo.png";
     <div
       class="relative z-10 max-w-7xl mx-auto h-full flex items-center px-6 sm:px-12 lg:px-20"
     >
-      <div class="max-w-2xl text-white">
+      <div class="max-w-2xl ">
         <!-- Small Top Text -->
         <div class="flex items-center gap-4 mb-6">
-          <span class="w-14 h-[2px] bg-yellow-400"></span>
-          <p class="text-lg font-medium">Always at the cutting edge</p>
+          <span class="w-14 h-[2px] bg-orange-400"></span>
+          <p class="text-lg text-black font-medium">Always at the cutting edge</p>
         </div>
 
         <!-- Main Heading -->
         <h1
           class="text-5xl sm:text-6xl lg:text-7xl font-extrabold leading-tight mb-10"
         >
-          Maveric <br />
-          Contractors Ltd.
+          Tolaamicable <br />
+          NIG Ltd.
         </h1>
 
         <!-- Buttons -->
@@ -135,7 +164,7 @@ import logo from "../assets/logo/logo.png";
           <!-- Primary Button -->
           <a
             href="#services"
-            class="bg-yellow-400 hover:bg-yellow-300 text-black font-bold px-10 py-4 rounded-full transition duration-300"
+            class=" bg-orange-500 hover:bg-orange-900 drop-shadow-lg text-white font-bold px-10 py-4 rounded-full transition duration-300"
           >
             OUR SERVICES
           </a>
@@ -144,17 +173,82 @@ import logo from "../assets/logo/logo.png";
           <a href="#projects" class="flex items-center gap-4 group">
             <div class="relative flex items-center justify-center">
               <span
-                class="absolute w-20 h-20 rounded-full border-2 border-yellow-400/40"
+                class="absolute w-20 h-20 rounded-full border-2 border-orange-500/40"
               ></span>
               <span
-                class="absolute w-14 h-14 rounded-full border-2 border-yellow-400"
+                class="absolute w-14 h-14 rounded-full border-2 border-orange-500"
               ></span>
               <span
-                class="w-8 h-8 rounded-full bg-yellow-400 block group-hover:scale-110 transition"
+                class="w-8 h-8 rounded-full bg-orange-500 block group-hover:scale-110 transition"
               ></span>
-            </div>
+            </div><br>
             <span class="text-lg font-medium text-white"> Our Projects </span>
           </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials -->
+  <section class="w-full bg-gray-100 py-20 border-t border-gray-200">
+    <div class="max-w-7xl mx-auto px-6 sm:px-12 lg:px-20">
+      <!-- Header -->
+      <div class="mb-12">
+        <p class="text-orange-500 font-semibold text-lg mb-4">Testimonials</p>
+
+        <h2
+          class="text-3xl sm:text-3xl lg:text-4xl font-bold text-gray-800 leading-tight"
+        >
+          What Our Clients <br />
+          Say About Us
+        </h2>
+      </div>
+
+      <!-- Cards -->
+      <div class="overflow-hidden w-full py-4">
+        <div class="flex animate-scroll gap-6 w-max">
+          <!-- First Set -->
+          <v-card
+            v-for="(item, index) in duplicatedTestimonials"
+            :key="index"
+            elevation="0"
+            class="rounded-3xl px-5 py-4 border border-gray-200 bg-white w-[320px] flex-shrink-0"
+          >
+            <!-- User -->
+            <div class="flex items-center mb-3">
+              <v-avatar size="45">
+                <v-img :src="item.image" cover />
+              </v-avatar>
+
+              <div class="ml-3">
+                <h3 class="text-base font-bold text-gray-800">
+                  {{ item.name }}
+                </h3>
+
+                <p class="text-sm text-gray-500 mb-0">
+                  {{ item.role }}
+                </p>
+              </div>
+            </div>
+
+            <!-- Stars -->
+            <div class="flex items-center mb-3">
+              <v-icon
+                v-for="n in 5"
+                :key="n"
+                size="16"
+                color="amber"
+                class="mr-1"
+              >
+                mdi-star
+              </v-icon>
+            </div>
+
+            <!-- Text -->
+            <p class="text-gray-600 text-sm leading-relaxed">
+              {{ item.text }}
+            </p>
+          </v-card>
         </div>
       </div>
     </div>
@@ -167,15 +261,15 @@ import logo from "../assets/logo/logo.png";
         <!-- Left Content -->
         <div>
           <!-- Small Heading -->
-          <p class="text-lime-500 font-semibold text-lg mb-6">
-            About Maveric Contractors
+          <p class="text-orange-500 font-semibold text-lg mb-6">
+            About Tolaamicable Contractors
           </p>
 
           <!-- Main Heading -->
           <h2
             class="text-3xl sm:text-3xl lg:text-4xl font-bold text-gray-800 leading-tight"
           >
-            Maveric – Precision <br />
+            Tolaamicable - NIG LTD <br />
             Engineering meets Cutting <br />
             Edge Technology
           </h2>
@@ -186,17 +280,17 @@ import logo from "../assets/logo/logo.png";
           <!-- Paragraph -->
           <p class="text-gray-600 text-lg leading-relaxed mb-10 max-w-2xl">
             Specializing in Heavy Civil Engineering and Infrastructure Projects,
-            Maveric is headquartered in Ireland, with a presence across the UK.
-            Over 25 years of engineering experience enables Maveric to maintain
-            absolute commitment to providing each client with an impressive
-            return on investment for even the most complex earthwork and
-            engineering challenges.
+            Tolaamicable is headquartered in Lagos, with a presence across
+            Nigeria. Over 25 years of engineering experience enables
+            Tolaamicable to maintain absolute commitment to providing each
+            client with an impressive return on investment for even the most
+            complex earthwork and engineering challenges.
           </p>
 
           <!-- Button -->
           <a
             href="#about"
-            class="inline-block bg-yellow-400 hover:bg-yellow-300 text-white font-bold text-lg px-10 py-4 rounded-full transition duration-300 w-fit"
+            class="inline-block bg-orange-500 hover:bg-orange-900 text-white font-bold text-sm px-10 py-4 rounded-full transition duration-300 w-fit"
           >
             MORE ABOUT US
           </a>
@@ -239,8 +333,45 @@ import logo from "../assets/logo/logo.png";
       </div>
 
       <!-- Service Cards -->
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
         <!-- Card 1 -->
+        <div
+          class="bg-white shadow-sm hover:shadow-lg transition group border-b-4 border-orange-500"
+        >
+          <img
+            src="../assets/img/archi.jpg"
+            alt="Project Planning"
+            class="w-full h-72 object-cover"
+          />
+
+          <div class="p-8 relative">
+            <!-- Icon -->
+            <div
+              class="absolute -top-8 left-8 w-14 h-14 bg-orange-500 flex items-center justify-center text-white text-2xl"
+            >
+              <v-icon size="30">mdi-account-hard-hat-outline</v-icon>
+            </div>
+
+            <h3 class="text-2xl font-bold text-gray-900 mb-4 mt-6">
+              Architectural Designs
+            </h3>
+
+            <p class="text-gray-600 leading-relaxed mb-6">
+              Comprehensive architectural design solutions crafted to transform
+              concepts into functional, modern, and visually striking spaces
+              with precision and creativity.
+            </p>
+
+            <a
+              href="#"
+              class="text-orange-500 font-semibold underline hover:text-orange-600"
+            >
+              View service
+            </a>
+          </div>
+        </div>
+
+        <!-- Card 2 -->
         <div
           class="bg-white shadow-sm hover:shadow-lg transition group border-b-4 border-orange-500"
         >
@@ -276,7 +407,42 @@ import logo from "../assets/logo/logo.png";
           </div>
         </div>
 
-        <!-- Card 2 -->
+        <!-- Card 3 -->
+        <div
+          class="bg-white shadow-sm hover:shadow-lg transition group border-b-4 border-orange-500"
+        >
+          <img
+            src="../assets/img/contractor-3.jpg"
+            alt="General Contracting"
+            class="w-full h-72 object-cover"
+          />
+
+          <div class="p-8 relative">
+            <div
+              class="absolute -top-8 left-8 w-14 h-14 bg-orange-500 flex items-center justify-center text-white text-2xl"
+            >
+              <v-icon size="30">mdi-office-building</v-icon>
+            </div>
+
+            <h3 class="text-2xl font-bold text-gray-900 mb-4 mt-6">
+              General Contracting
+            </h3>
+
+            <p class="text-gray-600 leading-relaxed mb-6">
+              Delivering robust construction and infrastructure services with
+              cutting-edge expertise and long-term reliability.
+            </p>
+
+            <a
+              href="#"
+              class="text-orange-500 font-semibold underline hover:text-orange-600"
+            >
+              View service
+            </a>
+          </div>
+        </div>
+
+        <!-- Card 4 -->
         <div
           class="bg-white shadow-sm hover:shadow-lg transition group border-b-4 border-orange-500"
         >
@@ -310,51 +476,11 @@ import logo from "../assets/logo/logo.png";
             </a>
           </div>
         </div>
-
-        <!-- Card 3 -->
-        <div
-          class="bg-white shadow-sm hover:shadow-lg transition group border-b-4 border-orange-500"
-        >
-          <img
-            src="../assets/img/contractor-3.jpg"
-            alt="General Contracting"
-            class="w-full h-72 object-cover"
-          />
-
-          <div class="p-8 relative">
-            <div
-              class="absolute -top-8 left-8 w-14 h-14 bg-orange-500 flex items-center justify-center text-white text-2xl"
-            >
-              ✎
-            </div>
-
-            <h3 class="text-2xl font-bold text-gray-900 mb-4 mt-6">
-              General Contracting
-            </h3>
-
-            <p class="text-gray-600 leading-relaxed mb-6">
-              Delivering robust construction and infrastructure services with
-              cutting-edge expertise and long-term reliability.
-            </p>
-
-            <a
-              href="#"
-              class="text-orange-500 font-semibold underline hover:text-orange-600"
-            >
-              View service
-            </a>
-          </div>
-        </div>
       </div>
 
       <!-- Bottom Buttons -->
-      <div class="flex flex-col sm:flex-row gap-6 justify-center mt-16">
-        <a
-          href="#quote"
-          class="bg-orange-500 hover:bg-orange-600 text-white font-bold px-10 py-4 transition"
-        >
-          Get a quote
-        </a>
+      <!-- <div class="flex flex-col sm:flex-row gap-6 justify-center mt-16">
+        
 
         <a
           href="#services"
@@ -362,7 +488,7 @@ import logo from "../assets/logo/logo.png";
         >
           Browse services
         </a>
-      </div>
+      </div> -->
     </div>
   </section>
 
@@ -406,18 +532,18 @@ import logo from "../assets/logo/logo.png";
           class="bg-white shadow-sm hover:shadow-lg transition group border-b-4 border-orange-500"
         >
           <img
-            src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c"
+            src="../assets/img/jendol.png"
             class="w-full h-72 object-cover"
           />
 
           <div class="p-8">
             <h3 class="text-2xl font-bold text-gray-900 mb-4">
-              Home construction in Malibu Beach, CA
+              Mega Supermarket Construction in Ajah, Lagos
             </h3>
 
             <p class="text-gray-600 leading-relaxed mb-6">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nec ut
-              viverra eros euismod.
+              Modern retail infrastructure built with precision, durability, and
+              contemporary architectural standards.
             </p>
 
             <div
@@ -477,99 +603,21 @@ import logo from "../assets/logo/logo.png";
     </div>
   </section>
 
-  <!-- Testimonials Section -->
-  <section class="w-full bg-gray-100 py-24">
-    <div class="max-w-7xl mx-auto px-6 sm:px-12 lg:px-20 relative">
-      <!-- Header -->
-      <div class="mb-16 max-w-xl">
-        <p class="text-orange-500 font-semibold mb-4">Testimonials</p>
-        <h2
-          class="text-4xl sm:text-5xl font-extrabold text-gray-900 leading-tight"
-        >
-          What our clients say about us and our work
-        </h2>
-      </div>
-
-      <!-- Layout -->
-      <div class="relative grid lg:grid-cols-2 gap-12 items-center">
-        <!-- LEFT CARD -->
-        <div class="bg-white p-10 shadow-md border relative z-10">
-          <h3 class="text-xl font-semibold text-gray-900 mb-4">
-            “A true team of expert contractors”
-          </h3>
-          <p class="text-gray-600 mb-6 leading-relaxed">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nec ut
-            viverra eros euismod. Vestibulum, diam suspendisse adipiscing diam
-            quis.
-          </p>
-
-          <div class="flex items-center gap-4">
-            <img
-              src="https://randomuser.me/api/portraits/women/44.jpg"
-              class="w-12 h-12 rounded-full object-cover"
-            />
-            <div>
-              <p class="font-semibold text-gray-900">Sophia Moore</p>
-              <p class="text-sm text-gray-500">Malibu Beach, CA</p>
-            </div>
-          </div>
-        </div>
-
-        <!-- RIGHT SIDE -->
-        <div class="relative flex flex-col gap-10">
-          <!-- ORANGE SHAPE (THE REAL FIX) -->
-          <!-- <div
-            class="absolute -left-12 top-10 w-40 h-[320px] bg-orange-500 z-0"
-          ></div> -->
-
-          <!-- TOP CARD -->
-          <div class="bg-white p-10 shadow-md border relative z-10">
-            <h3 class="text-xl font-semibold text-gray-900 mb-4">
-              “A team that never underdelivers”
-            </h3>
-            <p class="text-gray-600 mb-6 leading-relaxed">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nec ut
-              viverra eros euismod. Vestibulum, diam suspendisse adipiscing diam
-              quis.
-            </p>
-
-            <div class="flex items-center gap-4">
-              <img
-                src="https://randomuser.me/api/portraits/men/32.jpg"
-                class="w-12 h-12 rounded-full object-cover"
-              />
-              <div>
-                <p class="font-semibold text-gray-900">Mike Warren</p>
-                <p class="text-sm text-gray-500">Hollywood Hills, CA</p>
-              </div>
-            </div>
-          </div>
-
-          <!-- BOTTOM CARD -->
-          <div class="bg-white p-10 shadow-md border relative z-10">
-            <h3 class="text-xl font-semibold text-gray-900 mb-4">
-              “Great work quality, and delivered on time”
-            </h3>
-            <p class="text-gray-600 mb-6 leading-relaxed">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nec ut
-              viverra eros euismod. Vestibulum, diam suspendisse adipiscing diam
-              quis.
-            </p>
-
-            <div class="flex items-center gap-4">
-              <img
-                src="https://randomuser.me/api/portraits/women/65.jpg"
-                class="w-12 h-12 rounded-full object-cover"
-              />
-              <div>
-                <p class="font-semibold text-gray-900">Lily Woods</p>
-                <p class="text-sm text-gray-500">Los Angeles, CA</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
   <Footer />
 </template>
+
+<style scoped>
+.animate-scroll {
+  animation: scroll 25s linear infinite;
+}
+
+@keyframes scroll {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-50%);
+  }
+}
+</style>

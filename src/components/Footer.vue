@@ -11,39 +11,30 @@
 
           <!-- Products -->
           <div>
-            <h3 class="text-xl font-semibold mb-4">Product</h3>
+            <h3 class="text-xl font-semibold mb-4">Services</h3>
             <ul class="space-y-4 text-gray-600">
               <li>
-                <a href="about.html" class="hover:text-blue-600">Pricing</a>
+                <a href="about.html" class="hover:text-blue-600">Structural Engineering Design</a>
               </li>
               <li>
-                <a href="about.html" class="hover:text-blue-600">Conditions</a>
+                <a href="about.html" class="hover:text-blue-600">Architectural Design & Planning</a>
               </li>
               <li>
                 <a href="our-history.html" class="hover:text-blue-600"
-                  >Terms of Services</a
+                  >Residential & Commercial Building Construction</a
                 >
               </li>
               <li>
                 <a href="about.html" class="hover:text-blue-600"
-                  >Privacy Policies</a
+                  >Quality Assurance & Safety Compliance</a
                 >
               </li>
               <li>
                 <a href="about.html" class="hover:text-blue-600"
-                  >Dispute Resolution</a
+                  >Consultation & Advisory Services</a
                 >
               </li>
-              <li>
-                <a href="team.html" class="hover:text-blue-600"
-                  >New Guests List</a
-                >
-              </li>
-              <li>
-                <a href="about.html" class="hover:text-blue-600"
-                  >The Team List</a
-                >
-              </li>
+              
             </ul>
           </div>
 
@@ -56,8 +47,8 @@
             <p class="text-gray-600 leading-relaxed ">
               <a href="contact.html" class="text-blue-600 hover:underline">
                 Contact Us </a
-              >: 0808-922-4449, 0813-282-2731. <br />
-              Our email: admin@teinnovatecapital.ng
+              >: 0802-492-6832, 0818-851-6175. <br />
+              Our email: tolaamicable@yahoo.com
             </p>
             
           </div>
@@ -66,9 +57,9 @@
           <div>
             <h3 class="text-xl font-semibold mb-4">Community</h3>
             <div class="flex gap-7 mb-6">
-              <i class="fa-brands fa-facebook text-green-600 text-3xl"></i>
-              <i class="fa-brands fa-linkedin text-green-600 text-3xl"></i>
-              <i class="fa-brands fa-instagram text-green-600 text-3xl"></i>
+              <i class="fa-brands fa-facebook text-blue-600 text-3xl"></i>
+              <i class="fa-brands fa-linkedin text-blue-400 text-3xl"></i>
+              <i class="fa-brands fa-whatsapp text-green-600 text-3xl"></i>
             </div>
             <p class="mb-6">Stay Excited, Subscribe to our
               Newsletter</p>
@@ -88,7 +79,7 @@
           <p class="text-gray-600 text-sm">
             © Copyrights 2026
             <a href="index.html" class="text-blue-600 hover:underline">
-              Quidly </a
+              Tolaamicable </a
             >. All rights reserved.
           </p>
 

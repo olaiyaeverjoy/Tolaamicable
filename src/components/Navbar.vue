@@ -11,7 +11,7 @@
 </script>
 
 <template>
-  <div class="">
+  <div class="bg-white">
     <nav class="w-full border-t py-6">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex justify-between items-center gap-8" data-aos="fade-down">
