@@ -144,46 +144,59 @@ const duplicatedTestimonials = [...testimonials, ...testimonials];
     <div
       class="relative z-10 max-w-7xl mx-auto h-full flex items-center px-6 sm:px-12 lg:px-20"
     >
-      <div class="max-w-2xl ">
+      <div class="max-w-2xl">
         <!-- Small Top Text -->
         <div class="flex items-center gap-4 mb-6">
           <span class="w-14 h-[2px] bg-orange-400"></span>
-          <p class="text-lg text-black font-medium">Always at the cutting edge</p>
+          <p class="text-lg text-black font-medium">
+            Always at the cutting edge
+          </p>
         </div>
 
         <!-- Main Heading -->
         <h1
-          class="text-5xl sm:text-6xl lg:text-7xl font-extrabold leading-tight mb-10"
+          class="text-white text-5xl sm:text-6xl lg:text-7xl font-extrabold leading-tight mb-10"
         >
           Tolaamicable <br />
           NIG Ltd.
         </h1>
 
         <!-- Buttons -->
-        <div class="flex flex-wrap items-center gap-8">
+        <div
+          class="flex flex-col sm:flex-row items-start sm:items-center gap-6"
+        >
           <!-- Primary Button -->
           <a
             href="#services"
-            class=" bg-orange-500 hover:bg-orange-900 drop-shadow-lg text-white font-bold px-10 py-4 rounded-full transition duration-300"
+            class="bg-orange-500 hover:bg-orange-900 drop-shadow-lg text-white font-bold px-10 py-4 rounded-full transition duration-300"
           >
             OUR SERVICES
           </a>
 
-          <!-- Secondary Circular Button -->
-          <a href="#projects" class="flex items-center gap-4 group">
-            <div class="relative flex items-center justify-center">
-              <span
-                class="absolute w-20 h-20 rounded-full border-2 border-orange-500/40"
-              ></span>
-              <span
-                class="absolute w-14 h-14 rounded-full border-2 border-orange-500"
-              ></span>
-              <span
-                class="w-8 h-8 rounded-full bg-orange-500 block group-hover:scale-110 transition"
-              ></span>
-            </div><br>
-            <span class="text-lg font-medium text-white"> Our Projects </span>
-          </a>
+          <!-- Projects Container -->
+          <div class=" inline-flex items-center gap-4">
+            <a href="#projects" class="flex items-center gap-4 group">
+              <!-- Circle -->
+              <div class="relative flex items-center justify-center w-20 h-20">
+                <span
+                  class="absolute w-20 h-20 rounded-full border-2 border-orange-500/40"
+                ></span>
+
+                <span
+                  class="absolute w-14 h-14 rounded-full border-2 border-orange-500"
+                ></span>
+
+                <span
+                  class="w-8 h-8 rounded-full bg-orange-500 block group-hover:scale-110 transition duration-300"
+                ></span>
+              </div>
+
+              <!-- Text -->
+              <span class="text-lg font-medium text-white whitespace-nowrap">
+                Our Projects
+              </span>
+            </a>
+          </div>
         </div>
       </div>
     </div>
