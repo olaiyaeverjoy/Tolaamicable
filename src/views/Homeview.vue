@@ -3,6 +3,8 @@
 import Footer from "../components/Footer.vue";
 import logo from "../assets/logo/logo.png";
 
+import { ref, onMounted } from "vue";
+
 const testimonials = [
   {
     name: "Sarah Johnson",
@@ -31,6 +33,53 @@ const testimonials = [
 ];
 
 const duplicatedTestimonials = [...testimonials, ...testimonials];
+
+const statsSection = ref(null)
+
+const yearsBusiness = ref(0)
+const combinedExperience = ref(0)
+const millionProjects = ref(0)
+const partners = ref(0)
+
+let started = false
+
+function animateValue(refVar, end, duration = 2000) {
+  let start = 0
+  const increment = end / (duration / 16)
+
+  const timer = setInterval(() => {
+    start += increment
+
+    if (start >= end) {
+      refVar.value = end
+      clearInterval(timer)
+    } else {
+      refVar.value = Math.floor(start)
+    }
+  }, 16)
+}
+
+onMounted(() => {
+  const observer = new IntersectionObserver(
+    ([entry]) => {
+      if (entry.isIntersecting && !started) {
+        started = true
+
+        animateValue(yearsBusiness, 20)
+        animateValue(combinedExperience, 110)
+        animateValue(millionProjects, 47)
+        animateValue(partners, 20)
+      }
+    },
+    {
+      threshold: 0.4
+    }
+  )
+
+  if (statsSection.value) {
+    observer.observe(statsSection.value)
+  }
+})
 </script>
 
 <template>
@@ -174,7 +223,7 @@ const duplicatedTestimonials = [...testimonials, ...testimonials];
           </a>
 
           <!-- Projects Container -->
-          <div class=" inline-flex items-center gap-4">
+          <div class="inline-flex items-center gap-4">
             <a href="#projects" class="flex items-center gap-4 group">
               <!-- Circle -->
               <div class="relative flex items-center justify-center w-20 h-20">
@@ -307,6 +356,49 @@ const duplicatedTestimonials = [...testimonials, ...testimonials];
           >
             MORE ABOUT US
           </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Experience  -->
+  <section ref="statsSection" class="w-full bg-gray-100 py-20">
+    <div class="max-w-7xl mx-auto px-6 sm:px-12 lg:px-20">
+      <div class="grid grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-20">
+        <!-- Item -->
+        <div>
+          <h2 class="text-5xl lg:text-6xl font-semibold text-gray-900 mb-6">
+            {{ yearsBusiness }}+
+          </h2>
+
+          <p class="text-xl text-gray-800">years in business</p>
+        </div>
+
+        <!-- Item -->
+        <div>
+          <h2 class="text-5xl lg:text-6xl font-semibold text-gray-900 mb-6">
+            {{ combinedExperience }}+
+          </h2>
+
+          <p class="text-xl text-gray-800">years of combined experience</p>
+        </div>
+
+        <!-- Item -->
+        <div>
+          <h2 class="text-5xl lg:text-6xl font-semibold text-gray-900 mb-6">
+            {{ millionProjects }}
+          </h2>
+
+          <p class="text-xl text-gray-800">million dollars in projects</p>
+        </div>
+
+        <!-- Item -->
+        <div>
+          <h2 class="text-5xl lg:text-6xl font-semibold text-gray-900 mb-6">
+            {{ partners }}+
+          </h2>
+
+          <p class="text-xl text-gray-800">project partners</p>
         </div>
       </div>
     </div>
