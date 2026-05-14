@@ -16,6 +16,12 @@ import video2 from '../assets/videos/construction2.bg.mp4'
 //   currentIndex.value = (currentIndex.value + 1) % videos.length;
 // };
 
+const isOpen = ref(false);
+
+const toggleMenu = () => {
+  isOpen.value = !isOpen.value;
+};
+
 
 const videos = [video1, video2]
 
@@ -29,6 +35,18 @@ const nextVideo = () => {
   nextTick(() => {
     videoRef.value?.load()   // reloads the new <source>
     videoRef.value?.play()   // then plays it
+  })
+}
+
+//correct this scrolling block to an array and imbed every section into it 
+const scrollToServices = () => {
+  document.getElementById('services').scrollIntoView({
+    behavior: 'smooth'
+  })
+}
+const scrollToProjects = () => {
+  document.getElementById('projects').scrollIntoView({
+    behavior: 'smooth'
   })
 }
 </script>
@@ -125,14 +143,14 @@ const nextVideo = () => {
             <!-- Menu -->
             <ul class="flex flex-col gap-6 text-left">
               <li><a class="font-semibold text-lg" href="/">Home</a></li>
-              <li><a class="font-semibold text-lg" href="#">About</a></li>
-              <li><a class="font-semibold text-lg" href="#">Services</a></li>
-              <li><a class="font-semibold text-lg" href="#">Prices</a></li>
+              <li><a @click="scrollToServices(); isOpen = false" class="font-semibold text-lg" href="#">Services</a></li>
+              <li><a @click="scrollToProjects(); isOpen = false" class="font-semibold text-lg" href="#">Projects</a></li>
+              <li><a class="font-semibold text-lg" href="#">Team</a></li>
               <li>
                 <button
-                  class="mt-4 rounded text-white text-sm py-3 px-6 bg-lime-600 hover:bg-lime-800 transition"
+                  class="mt-4 rounded text-white text-sm py-3 px-6 bg-orange-500 hover:bg-orange-800 transition"
                 >
-                  Get started
+                  Get in Touch
                 </button>
               </li>
             </ul>

@@ -241,7 +241,7 @@ onMounted(() => {
   </section>
 
   <!-- Services Section -->
-  <section class="w-full bg-gray-100 py-24">
+  <section id="services" class="w-full bg-gray-100 py-24">
     <div class="max-w-7xl mx-auto px-6 sm:px-12 lg:px-20">
       <!-- Header -->
       <div
@@ -434,7 +434,7 @@ onMounted(() => {
   </section>
 
   <!-- Projects Section -->
-  <section class="w-full bg-gray-100 py-24">
+  <section id="projects" class="w-full bg-gray-100 py-24">
     <div class="max-w-7xl mx-auto px-6 sm:px-12 lg:px-20">
       <!-- Header -->
       <div
