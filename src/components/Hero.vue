@@ -29,13 +29,15 @@ const videos = [video1, video2]
 const videoRef = ref(null)
 const currentIndex = ref(0)
 
-const nextVideo = () => {
+const nextVideo = (e) => {
   currentIndex.value = (currentIndex.value + 1) % videos.length
 
-  nextTick(() => {
-    videoRef.value?.load()   // reloads the new <source>
-    videoRef.value?.play()   // then plays it
-  })
+  // nextTick(() => {
+  //   videoRef.value?.load()   // reloads the new <source>
+  //   videoRef.value?.play()   // then plays it
+  // })
+  e.target.src = videos[currentIndex.value]
+  e.target.play()
 }
 
 //correct this scrolling block to an array and imbed every section into it 
