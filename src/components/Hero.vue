@@ -1,6 +1,6 @@
 <script setup>
 import logo from "../assets/logo/logo.png";
-import { ref, nextTick} from "vue";
+import { ref, shallowRef, onMounted, nextTick} from "vue";
 import video1 from '../assets/videos/construct.mp4'
 import video2 from '../assets/videos/construction2.bg.mp4'
 
@@ -25,20 +25,37 @@ const toggleMenu = () => {
 
 const videos = [video1, video2]
 
+const activeVideo = ref(0)
 
-const videoRef = ref(null)
-const currentIndex = ref(0)
+// 
+const firstVideoRef = shallowRef(null)
+const secondVideoRef = shallowRef(null)
 
-const nextVideo = (e) => {
-  currentIndex.value = (currentIndex.value + 1) % videos.length
+const playNext = () => {
+  activeVideo.value = activeVideo.value === 0 ? 1 : 0
 
-  // nextTick(() => {
-  //   videoRef.value?.load()   // reloads the new <source>
-  //   videoRef.value?.play()   // then plays it
-  // })
-  e.target.src = videos[currentIndex.value]
-  e.target.play()
+  const activeEl =
+    activeVideo.value === 0 ? firstVideoRef.value : secondVideoRef.value
+
+  activeEl.play()
 }
+
+onMounted(() => {
+  firstVideoRef.value.play()
+})
+// const videoRef = ref(null)
+// const currentIndex = ref(0)
+
+// const nextVideo = (e) => {
+//   currentIndex.value = (currentIndex.value + 1) % videos.length
+
+//   // nextTick(() => {
+//   //   videoRef.value?.load()   // reloads the new <source>
+//   //   videoRef.value?.play()   // then plays it
+//   // })
+//   e.target.src = videos[currentIndex.value]
+//   e.target.play()
+// }
 
 //correct this scrolling block to an array and imbed every section into it 
 const scrollToServices = () => {
@@ -55,7 +72,7 @@ const scrollToProjects = () => {
 
 <template>
   <section class="relative h-[78vh] w-full overflow-hidden">
-    <video
+    <!-- <video
       ref="videoRef"
       
       autoplay
@@ -65,7 +82,33 @@ const scrollToProjects = () => {
       @ended="nextVideo"
     >
       <source :src="videos[currentIndex]" type="video/mp4" />
-    </video>
+    </video> -->
+    <div class="absolute inset-0 w-full h-full overflow-hidden">
+    <!-- Video 1 -->
+    <video
+      ref="firstVideoRef"
+      :src="videos[0]"
+      muted
+      playsinline
+      preload="auto"
+      class="absolute inset-0 w-full h-full object-cover transition-opacity duration-700"
+      :class="activeVideo === 0 ? 'opacity-100 z-10' : 'opacity-0 z-0'"
+      @ended="playNext"
+    />
+
+    <!-- Video 2 -->
+    <video
+      ref="secondVideoRef"
+      :src="videos[1]"
+      muted
+      playsinline
+      preload="auto"
+      class="absolute inset-0 w-full h-full object-cover transition-opacity duration-700"
+      :class="activeVideo === 1 ? 'opacity-100 z-10' : 'opacity-0 z-0'"
+      @ended="playNext"
+    />
+  </div>
+
 
     <nav class="relative z-20 w-full border-t py-6">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
